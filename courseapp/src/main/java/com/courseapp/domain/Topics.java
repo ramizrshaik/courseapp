@@ -3,6 +3,9 @@ package com.courseapp.domain;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
@@ -11,7 +14,9 @@ public class Topics implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private int topic_id;
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private long topic_id;
 	private String course_id;
 	private String topic_name;
 	private String topic_duration;
@@ -24,7 +29,7 @@ public class Topics implements Serializable {
 		this.topic_duration = topic_duration;
 	}
 
-	public int getTopic_id() {
+	public long getTopic_id() {
 		return topic_id;
 	}
 
