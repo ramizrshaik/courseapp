@@ -37,7 +37,9 @@ public class Course implements Serializable {
 	@NotEmpty
 	@Size(min=4, max=8, message="enter valid course id") //JPA validation
 	private int courseId;
+	
 	@Column
+	@NotEmpty
 	private String courseName;
 	@Column
 	private String courseDescription;
