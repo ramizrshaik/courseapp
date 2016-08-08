@@ -9,6 +9,13 @@ import com.courseapp.domain.User;
 import com.courseapp.repositories.CourseRepository;
 import com.courseapp.repositories.UserRepository;
 
+/*first apply @valid annotation for the object to be validated
+go to domain class apply validation annotations like notnull,past,length, pattern,email
+create a custom class which tells client what the errors are
+you need to know what exception spring throws when validation fails
+for that exception we need to define an exception handler which goes to controller advice class*/
+
+
 @Service
 public class CourseService {
 
@@ -19,8 +26,6 @@ public class CourseService {
 	private UserRepository userRepository;
 	
 	public Course saveCourse(Course course) throws Exception {
-		User user=userRepository.findOne(course.getAuthor());
-		course.getRegisteredusers().add(user);
 		return courseRepository.save(course);
 	}
 	
