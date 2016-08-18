@@ -25,7 +25,7 @@ public class UserController {
 	private UserService userService;
 
 	// create user
-	@RequestMapping(method = RequestMethod.POST)
+	@RequestMapping(value="create", method = RequestMethod.POST)
 	public ResponseEntity<User> create(@Valid @RequestBody User user) throws Exception {
 		return new ResponseEntity<User>(userService.save(user), HttpStatus.CREATED);
 	}
