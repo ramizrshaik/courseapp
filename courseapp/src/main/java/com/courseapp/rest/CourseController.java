@@ -34,14 +34,14 @@ public class CourseController {
 
 	// get course by id
 	@RequestMapping(method = RequestMethod.GET)
-	public ResponseEntity<Course> update(@PathVariable("courseId") Integer courseId) throws Exception {
+	public ResponseEntity<Course> update(@PathVariable("courseId") Long courseId) throws Exception {
 		return new ResponseEntity<Course>(courseService.getCourseById(courseId), HttpStatus.OK);
 
 	}
 
 	// delete course by id
 	@RequestMapping(method = RequestMethod.DELETE)
-	public ResponseEntity<HttpStatus> delete(@PathVariable("courseId") Integer courseId) throws Exception {
+	public ResponseEntity<HttpStatus> delete(@PathVariable("courseId") Long courseId) throws Exception {
 		courseService.deleteCourse(courseId);
 		return new ResponseEntity<HttpStatus>(HttpStatus.OK);
 
@@ -56,14 +56,14 @@ public class CourseController {
 
 	// remove User from course
 	@RequestMapping(value = "{courseId}/users/{userId}", method = RequestMethod.DELETE)
-	public ResponseEntity<Course> removeUserFromCourse(@PathVariable("courseId") Integer courseId,
+	public ResponseEntity<Course> removeUserFromCourse(@PathVariable("courseId") Long courseId,
 			@PathVariable("userId") String userId) throws Exception {
 		return new ResponseEntity<Course>(courseService.removeUserFromCourse(courseId, userId), HttpStatus.OK);
 	}
 
 	// add Topic to a course
 	@RequestMapping(value = "{courseId}/topic", method = RequestMethod.PUT)
-	public ResponseEntity<Course> addTopicToCourse(@PathVariable("courseId") Integer courseId, @RequestBody Topic topic)
+	public ResponseEntity<Course> addTopicToCourse(@PathVariable("courseId") Long courseId, @RequestBody Topic topic)
 			throws Exception {
 
 		return new ResponseEntity<Course>(courseService.addTopicToCourse(courseId, topic), HttpStatus.OK);
@@ -71,7 +71,7 @@ public class CourseController {
 
 	// remove Topic from a course
 	@RequestMapping(value = "{courseId}/topic", method = RequestMethod.DELETE)
-	public ResponseEntity<Course> removeTopicFromACourse(@PathVariable("courseId") Integer courseId,
+	public ResponseEntity<Course> removeTopicFromACourse(@PathVariable("courseId") Long courseId,
 			@RequestBody Topic topic) throws Exception {
 
 		return new ResponseEntity<Course>(courseService.removeTopicFromCourse(courseId, topic), HttpStatus.OK);

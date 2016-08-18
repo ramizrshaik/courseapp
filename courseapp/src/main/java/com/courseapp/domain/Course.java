@@ -36,7 +36,7 @@ public class Course implements Serializable {
 													// primary key value
 	@NotEmpty
 	@Size(min=4, max=8, message="enter valid course id") //JPA validation
-	private int courseId;
+	private long courseId;
 	
 	@Column
 	@NotEmpty
@@ -86,7 +86,7 @@ public class Course implements Serializable {
 		this.courseId = course_id;
 	}
 
-	public int getCourse_id() {
+	public long getCourse_id() {
 		return courseId;
 	}
 
